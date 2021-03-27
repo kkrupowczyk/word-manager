@@ -14,5 +14,4 @@ module.exports = function(app) {
 
     app.route('/words/:word/count')
         .get(wordsController.get_word_count);
-
 };

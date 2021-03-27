@@ -32,3 +32,9 @@ exports.get_word_count = function (word) {
     let filteredWords = words.filter(wordObject => wordObject.value === word);
     return filteredWords.length;
 };
+
+exports.delete_all = function () {
+    words = [];
+    return words;
+};
+

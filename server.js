@@ -1,13 +1,15 @@
-var express = require('express');
-var app = express();
+let express = require('express');
+let bodyParser = require('body-parser');
 
-app.get('/', function (req, res) {
-    res.send('Hello World');
-})
+let app = express();
+let port = 3001;
 
-var server = app.listen(8081, function () {
-    var host = server.address().address
-    var port = server.address().port
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
-    console.log("Started http://%s:%s", host, port)
-})
+let routes = require('./api/routes/words-route');
+routes(app);
+
+app.listen(port);
+
+console.log("Running app on http://localhost:" + port);
